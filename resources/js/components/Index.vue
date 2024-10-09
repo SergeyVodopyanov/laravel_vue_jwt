@@ -5,6 +5,8 @@
         <router-link :to="{ name: 'user.registration' }"
             >Registration</router-link
         >
+        <router-link :to="{ name: 'user.personal' }">Personal</router-link>
+
         <router-view></router-view>
     </div>
 </template>

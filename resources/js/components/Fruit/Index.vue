@@ -27,15 +27,22 @@
 <script setup>
 import axios from "axios";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+import api from "../../api";
+let router = useRouter();
 
 let fruits = ref(null);
+// let api = initApi();
+// export default api;
+getFruits(api);
 
-getFruits();
-
-function getFruits() {
-    axios.get("/api/fruits").then((res) => {
+function getFruits(api) {
+    api.get("/api/auth/fruits", {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+    }).then((res) => {
         fruits.value = res.data.data;
-        console.log(fruits);
     });
 }
 </script>

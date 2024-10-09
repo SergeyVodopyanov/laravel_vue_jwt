@@ -23,6 +23,7 @@
 
 <script setup>
 import { ref } from "vue";
+import router from "../../router";
 
 let email = ref("");
 let password = ref("");
@@ -40,6 +41,7 @@ function login() {
             //     token: res.data.access_token,
             // };
             // localStorage.setItem("some_data", JSON.stringify(data));
+            router.push({ name: "user.personal" });
         });
 }
 </script>
