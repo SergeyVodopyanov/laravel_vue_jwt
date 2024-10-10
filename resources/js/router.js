@@ -49,7 +49,10 @@ router.beforeEach((to, from, next) => {
 
     //Если у пользователя есть токен и он пытается перейти на роут логина, то его перекидывает на личную страницу
 
-    if (to.name === "user.login" && accessToken) {
+    if (
+        (to.name === "user.login" || to.name === "user.registration") &&
+        accessToken
+    ) {
         return next({ name: "user.personal" });
     }
 

@@ -32,7 +32,7 @@ class AuthController extends Controller
             return $this->respondWithToken($token);
         }
 
-        return response()->json(['error' => 'Unauthorized'], 401);
+        return response()->json(['error' => 'Wrong password or email'], 401);
     }
 
     /**
